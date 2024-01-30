@@ -1,9 +1,18 @@
 const express = require("express");
 const routes = express.Router();
 const classRoomControlar = require("../../controller/classroom.controller")
+const verifyToken = require("../../middelware/verifyToken");
+const authorization = require("../../middelware/authorization");
 
 routes
 .route("/")
-.get(classRoomControlar.getAllClass)
+.get(verifyToken,classRoomControlar.getAllClass)
+.post(verifyToken,authorization("admin"),classRoomControlar.postClass)
+
+routes
+.route("/:id")
+.get(verifyToken,classRoomControlar.getOneClass)
+.put(verifyToken,classRoomControlar.updateOneClass)
+.delete(verifyToken,authorization("admin"),classRoomControlar.deleteRoom)
 
 module.exports = routes;

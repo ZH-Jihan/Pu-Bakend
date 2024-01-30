@@ -8,6 +8,7 @@ const classroomScema = mongoose.Schema({
   roomnum: {
     type: String,
     unique: true,
+    require: [true, "Please Enter Room Num"]
   },
   roominitial: {
     type: String,

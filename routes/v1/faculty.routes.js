@@ -8,11 +8,11 @@ const routes = express.Router();
 
 routes
   .route("/")
-  .get(viewCount,limiter ,facultyController.getAllFaculty)
+  .get(viewCount,limiter ,verifyToken,facultyController.getAllFaculty)
   .post(verifyToken,authorization("admin"),facultyController.postAFaculty);
 routes
   .route("/:id")
-  .get(viewCount,limiter ,facultyController.getOneFaculty)
+  .get(viewCount,limiter ,verifyToken,facultyController.getOneFaculty)
   .put(verifyToken,authorization("admin"),facultyController.updateOneFaculty)
   .delete(verifyToken,authorization("admin"),facultyController.deleteOneFaculty)
 
