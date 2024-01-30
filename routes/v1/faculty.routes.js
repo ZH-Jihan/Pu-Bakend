@@ -13,6 +13,8 @@ routes
 routes
   .route("/:id")
   .get(viewCount,limiter ,facultyController.getOneFaculty)
+  .put(verifyToken,authorization("admin"),facultyController.updateOneFaculty)
+  .delete(verifyToken,authorization("admin"),facultyController.deleteOneFaculty)
 
 
 module.exports = routes; 

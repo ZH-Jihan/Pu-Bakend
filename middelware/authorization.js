@@ -7,7 +7,6 @@ module.exports= (...role) =>{
                 error: "You are not authorized to access this"
             });
         }
-
         next();
     };
 };

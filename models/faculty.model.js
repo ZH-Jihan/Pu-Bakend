@@ -5,10 +5,18 @@ const facultyScema = mongoose.Schema({
   image: String,
   name: {
     type: String,
-    require: [true, "Please Inpun Your name"],
+    require: [true, "Please Inpunt Your name"],
   },
-  initialname: String,
-  id: String,
+  initialname: {
+    type: String,
+    require: [true, "Please Inpunt Your Initial Name"],
+    unique: true
+  },
+  id: {
+    type: String,
+    require: [true, "Please Inpun Your ID"],
+    unique: true
+  },
   pnumber: String,
   email: {
     type: String,
