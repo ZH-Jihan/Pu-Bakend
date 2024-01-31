@@ -2,25 +2,31 @@ const mongoose = require("mongoose");
 
 const facultyScema = mongoose.Schema({
   imgurl: String,
-  image: String,
   name: {
     type: String,
-    require: [true, "Please Inpunt Your name"],
+    required: [true, "Please Input Your name"],
   },
   initialname: {
     type: String,
-    require: [true, "Please Inpunt Your Initial Name"],
+    required: [true, "Please Input Your Initial Name"],
     unique: true
   },
   id: {
     type: String,
-    require: [true, "Please Inpun Your ID"],
+    required: [true, "Please Input Your ID"],
     unique: true
   },
-  pnumber: String,
+  pnumber: {
+    type: String,
+    required:[true, "Please Input Phone Number"]
+  },
   email: {
     type: String,
-    default: "No Email Set"
+    default: ""
+  },
+  roomnumber: {
+    type: String,
+    
   },
   designation: {
     type:String,
@@ -34,8 +40,12 @@ const facultyScema = mongoose.Schema({
   university: String,
   doj: String,
   dob: String,
+  maritstatus: String,
   jobtype: String,
-  status: String,
+  status: {
+    type:String,
+    default: "Active"
+  },
   sex: String,
 });
 

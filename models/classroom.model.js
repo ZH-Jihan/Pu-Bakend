@@ -8,13 +8,16 @@ const classroomScema = mongoose.Schema({
   roomnum: {
     type: String,
     unique: true,
-    require: [true, "Please Enter Room Num"]
+    required: [true, "Please Enter Room Num"]
   },
   roominitial: {
     type: String,
     default: "C_Room",
   },
-  capacity : String
+  capacity : {
+    type: String,
+    required:[true,"Please enter room capacity"]
+  }
 });
 
 const ClassRoom = mongoose.model("ClassRoom", classroomScema);

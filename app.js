@@ -5,6 +5,7 @@ const facultyRouters = require("./routes/v1/faculty.routes");
 const userRouter = require("./routes/v1/user.route");
 const classroomRouters = require("./routes/v1/classroom.router");
 const cookieParser = require("cookie-parser");
+const employeeroutes = require("./routes/v1/employee.routes");
 
 // Middleware
 app.use(cors());
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
 app.use('/api/v1/faculty', facultyRouters);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/classroom", classroomRouters);
+app.use("/api/v1/employee", employeeroutes);
 
 
 module.exports = app;
